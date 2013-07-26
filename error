@@ -1,0 +1,143 @@
+make -C /lib/modules/3.9.9-1-ARCH/build M=/home/brarrington/Downloads/hammerfs2 modules
+make[1]: Entering directory `/usr/src/linux-3.9.9-1-ARCH'
+  CC [M]  /home/brarrington/Downloads/hammerfs2/super.o
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:14:0:
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:210:1: warning: data definition has no type or storage class [enabled by default]
+ RB_HEAD(buf_rb_tree, buf);
+ ^
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:210:1: warning: type defaults to 'int' in declaration of 'RB_HEAD' [-Wimplicit-int]
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:210:1: warning: parameter names (without types) in function declaration [enabled by default]
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:211:1: warning: data definition has no type or storage class [enabled by default]
+ RB_HEAD(buf_rb_hash, buf);
+ ^
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:211:1: warning: type defaults to 'int' in declaration of 'RB_HEAD' [-Wimplicit-int]
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:211:1: warning: parameter names (without types) in function declaration [enabled by default]
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:569:30: warning: 'struct filedesc' declared inside parameter list [enabled by default]
+ struct  file *holdfp (struct filedesc *fdp, int fd, int flag);
+                              ^
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:569:30: warning: its scope is only this definition or declaration, which is probably not what you want [enabled by default]
+/home/brarrington/Downloads/hammerfs2/super.c:44:0: warning: "MNT_FORCE" redefined [enabled by default]
+ #define MNT_FORCE       0x00080000      /* force unmount or readonly change */
+ ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:6:0:
+include/linux/fs.h:1200:0: note: this is the location of the previous definition
+ #define MNT_FORCE 0x00000001 /* Attempt to forcibily umount */
+ ^
+/home/brarrington/Downloads/hammerfs2/super.c: In function 'hammer2_install_volume_header':
+/home/brarrington/Downloads/hammerfs2/super.c:240:10: warning: passing argument 1 of 'bread' from incompatible pointer type [enabled by default]
+          HAMMER2_VOLUME_BYTES, &bp);
+          ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:14:0:
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:414:5: note: expected 'struct super_block *' but argument is of type 'struct vnode *'
+ int bread (struct super_block*, off_t, int, struct buf **);
+     ^
+/home/brarrington/Downloads/hammerfs2/super.c:242:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:250:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:258:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:274:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:282:3: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+   brelse(bp);
+   ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:14:0:
+/home/brarrington/Downloads/hammerfs2/super.c: In function 'hammer2fs_fill_super':
+/home/brarrington/Downloads/hammerfs2/super.c:629:37: error: 'size' undeclared (first use in this function)
+  bzero(mp->mnt_stat.f_mntfromname + size, MNAMELEN - size);
+                                     ^
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:552:32: note: in definition of macro 'bzero'
+ #define bzero(buf, len) memset(buf, 0, len)
+                                ^
+/home/brarrington/Downloads/hammerfs2/super.c:629:37: note: each undeclared identifier is reported only once for each function it appears in
+  bzero(mp->mnt_stat.f_mntfromname + size, MNAMELEN - size);
+                                     ^
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:552:32: note: in definition of macro 'bzero'
+ #define bzero(buf, len) memset(buf, 0, len)
+                                ^
+/home/brarrington/Downloads/hammerfs2/super.c:341:15: warning: unused variable 'file' [-Wunused-variable]
+  struct file *file;
+               ^
+/home/brarrington/Downloads/hammerfs2/super.c: In function 'hammer2fs_install_volume':
+/home/brarrington/Downloads/hammerfs2/super.c:677:10: warning: passing argument 1 of 'bread' from incompatible pointer type [enabled by default]
+          HAMMER2_VOLUME_BYTES, &bp);
+          ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:14:0:
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:414:5: note: expected 'struct super_block *' but argument is of type 'struct vnode *'
+ int bread (struct super_block*, off_t, int, struct buf **);
+     ^
+/home/brarrington/Downloads/hammerfs2/super.c:679:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:687:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:695:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:711:4: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+    brelse(bp);
+    ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:719:3: warning: passing argument 1 of 'brelse' from incompatible pointer type [enabled by default]
+   brelse(bp);
+   ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:12:0:
+include/linux/buffer_head.h:274:20: note: expected 'struct buffer_head *' but argument is of type 'struct buf *'
+ static inline void brelse(struct buffer_head *bh)
+                    ^
+/home/brarrington/Downloads/hammerfs2/super.c:653:22: warning: unused variable 'bh' [-Wunused-variable]
+  struct buffer_head *bh;
+                      ^
+In file included from /home/brarrington/Downloads/hammerfs2/super.c:14:0:
+/home/brarrington/Downloads/hammerfs2/super.c: At top level:
+/home/brarrington/Downloads/hammerfs2/dfly_wrap.h:566:21: warning: 'BUF_KERNPROC' declared 'static' but never defined [-Wunused-function]
+ static  inline void BUF_KERNPROC(struct buf *bp);
+                     ^
+/home/brarrington/Downloads/hammerfs2/super.c:651:1: warning: 'hammer2fs_install_volume' defined but not used [-Wunused-function]
+ hammer2fs_install_volume(struct hammer2_mount *hmp, struct super_block *sb)
+ ^
+make[2]: *** [/home/brarrington/Downloads/hammerfs2/super.o] Error 1
+make[1]: *** [_module_/home/brarrington/Downloads/hammerfs2] Error 2
+make[1]: Leaving directory `/usr/src/linux-3.9.9-1-ARCH'
+make: *** [all] Error 2
